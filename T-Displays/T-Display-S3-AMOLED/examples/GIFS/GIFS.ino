@@ -5,9 +5,11 @@
 
 #include "fatyoshi.h"
 
-LV_IMG_DECLARE(blinkinguyAMOLED);
 LV_IMG_DECLARE(homerbushAMOLED);
-LV_IMG_DECLARE(huhcatAMOLED);
+LV_IMG_DECLARE(piplupstep);
+LV_IMG_DECLARE(bocchi);
+LV_IMG_DECLARE(connor);
+const int NUM_GIFS = 4;
 
 TFT_eSPI tft= TFT_eSPI();
 TFT_eSprite sprite = TFT_eSprite(&tft);
@@ -40,7 +42,7 @@ void setup() {
   lcd_PushColors(0, 0, TFT_WIDTH, TFT_HEIGHT, (uint16_t*)sprite.getPointer());
   sprite.setSwapBytes(false);
   
-  delay(5000);
+  delay(4000);
 
   button1.attachClick(turnDisplayOff);
   button2.attachClick(nextGif);
@@ -88,7 +90,7 @@ void turnDisplayOff() {
 }
 
 void nextGif() {
-    currentGifIndex = (currentGifIndex + 1) % 3;
+    currentGifIndex = (currentGifIndex + 1) % NUM_GIFS;
     displayGif(currentGifIndex);
 }
 
@@ -104,10 +106,13 @@ void displayGif(int index) {
         lv_gif_set_src(currentGif, &homerbushAMOLED);
         break;
       case 1:
-        lv_gif_set_src(currentGif, &blinkinguyAMOLED);
+        lv_gif_set_src(currentGif, &piplupstep);
         break;
       case 2:
-        lv_gif_set_src(currentGif, &huhcatAMOLED);
+        lv_gif_set_src(currentGif, &bocchi);
+        break;
+      case 3:
+        lv_gif_set_src(currentGif, &connor);
         break;
     }
     lv_obj_center(currentGif);
