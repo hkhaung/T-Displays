@@ -8,3 +8,7 @@
 
 # Creating gifs for amoled
 - Use this [link](https://lvgl.io/tools/imageconverter) and select LVLGLv8. For color format, choose CF_RAW_CHROMA. For output, choose C array. Feel free to select and experiment with other options but these are what worked for me.
+
+
+Note: The folders are cloned from [LilyGO](https://github.com/Xinyuan-LilyGO/T-Display-S3-AMOLED).
+The only thing I modified/added was the GIFS folder to add gifs to the boards.
